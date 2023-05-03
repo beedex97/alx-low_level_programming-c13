@@ -3,22 +3,23 @@
 
 /**
  * print_list - function with one argument
- * @h: pointer to the list_t list to print
- * 
+ * @h: const pointer type
+ *
+ * Description: prints all the elements of a list_t list
  * Return: number of nodes
  */
 size_t print_list(const list_t *h)
 {
- size_t b = 0;
+	unsigned int count = 0;
 
- while (h)
- {
- if (!h->str)
- printf("[0] (nil)\n");
- else
- printf("[%u] %b\n", h->len, h->str);
- h = h->next;
- b++;
- }
-
- return (b)
+	while (h != NULL)
+	{
+		if (h->str == NULL)
+			printf("[0] (nil)\n");
+		else
+			printf("[%d] %s\n", h->len, h->str);
+		h = h->next;
+		count++;
+	}
+	return (count);
+}
